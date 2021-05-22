@@ -22,6 +22,7 @@ setInterval(() => {
   	var now  = new Date();
   	var hour = `${now.getHours()}`.padStart(2, '0');
   	var min  = `${now.getMinutes()}`.padStart(2, '0');
-    client.send(`${hour}:${min}`);
+  	var sec  = `${now.getSeconds()}`.padStart(2, '0');
+    client.send(`${hour}:${min}:${sec}`);
   });
 }, 1000);
