@@ -19,6 +19,9 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
+  	var now  = new Date();
+  	var hour = `${now.getHours()}`.padStart(2, '0');
+  	var min  = `${now.getMinutes()}`.padStart(2, '0');
+    client.send(`${hour}:${min}`);
   });
 }, 1000);
