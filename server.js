@@ -6,9 +6,9 @@ var app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-  if(res.query?.hasOwnProperty('code')){
-    console.log(`OK Your code is ${res.query.code}`)
-    res.render('ok', { code: res.query.code });
+  if(req.query?.hasOwnProperty('code')){
+    console.log(`OK Your code is ${req.query.code}`)
+    res.render('ok', { code: req.query.code });
     return;
   }
   res.sendFile('index.html', {root: __dirname});
