@@ -2,12 +2,12 @@
 
 var express = require('express');
 var app = express();
+app.set('view engine', 'pug')
 
 const PORT = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
   if(req.query?.hasOwnProperty('code')){
-    console.log(`OK Your code is ${req.query.code}`)
     res.render('ok', { code: req.query.code });
     return;
   }
